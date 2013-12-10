@@ -1,8 +1,8 @@
 /*
  *  See header file for a description of this class.
  *
- *  $Date: 2010/02/16 10:03:23 $
- *  $Revision: 1.2 $
+ *  $Date: 2012/03/02 19:47:32 $
+ *  $Revision: 1.3 $
  *  \author A. Vilela Pereira
  */
 
@@ -18,6 +18,8 @@
 
 using namespace std;
 using namespace edm;
+
+namespace dtCalibration {
 
 DTTTrigMatchRPhi::DTTTrigMatchRPhi(const ParameterSet& pset) {
   dbLabel  = pset.getUntrackedParameter<string>("dbLabel", "");
@@ -63,3 +65,5 @@ DTTTrigData DTTTrigMatchRPhi::correction(const DTSuperLayerId& slId) {
     }
   }
 }
+
+} // namespace

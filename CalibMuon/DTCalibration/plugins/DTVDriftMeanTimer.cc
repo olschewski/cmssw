@@ -2,8 +2,8 @@
 /*
  *  See header file for a description of this class.
  *
- *  $Date: 2010/11/18 20:58:24 $
- *  $Revision: 1.2 $
+ *  $Date: 2012/03/02 19:47:33 $
+ *  $Revision: 1.3 $
  *  \author A. Vilela Pereira
  */
 
@@ -28,6 +28,8 @@
 
 using namespace std;
 using namespace edm;
+
+namespace dtCalibration {
 
 DTVDriftMeanTimer::DTVDriftMeanTimer(const ParameterSet& pset) {
   string rootFileName = pset.getParameter<string>("rootFileName");
@@ -59,3 +61,5 @@ DTVDriftData DTVDriftMeanTimer::compute(DTSuperLayerId const& slId) {
 
   return DTVDriftData(vDriftAndReso[0],vDriftAndReso[1]);
 }
+
+} // namespace

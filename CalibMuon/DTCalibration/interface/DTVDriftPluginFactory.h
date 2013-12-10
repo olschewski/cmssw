@@ -5,8 +5,8 @@
  *  Factory of seal plugins for vDrfit computation.
  *  The plugins are concrete implementations of DTVDriftBaseAlgo.
  *
- *  $Date: 2010/11/17 17:54:23 $
- *  $Revision: 1.1 $
+ *  $Date: 2012/03/02 19:47:32 $
+ *  $Revision: 1.2 $
  *  \author A. Vilela Pereira
  */
 
@@ -15,7 +15,9 @@
 namespace edm {
   class ParameterSet;
 }
-class DTVDriftBaseAlgo;
+namespace dtCalibration {
+  class DTVDriftBaseAlgo;
+}
 
-typedef edmplugin::PluginFactory<DTVDriftBaseAlgo *(const edm::ParameterSet &)> DTVDriftPluginFactory;
+typedef edmplugin::PluginFactory<dtCalibration::DTVDriftBaseAlgo *(const edm::ParameterSet &)> DTVDriftPluginFactory;
 #endif
