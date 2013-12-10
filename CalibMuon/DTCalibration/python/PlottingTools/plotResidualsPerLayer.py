@@ -45,7 +45,7 @@ def plotResLayer(fileName,sl,layer,
             for sec in range(1,nSectors+1):
                 if verbose: print "Sector",sec
                 # Get histogram
-                histoName = "%s/Wheel%d/Station%d/Sector%d/%s/hResDist_STEP3_W%d_St%d_Sec%d_%s_%s" % (dir,wh,st,sec,slStr,wh,st,sec,slStr,layerStr) 
+                histoName = "%s/Wheel%d/Station%d/Sector%d/%s/hResDist_STEP3_W%d_St%d_Sec%d_%s_%s" % (dir,wh,st,sec,slStr,wh,st,sec,slStr,layerStr)
                 print "Accessing",histoName
                 histo = file.Get(histoName)
                 (histo,fitFunc) = fitResidual(histo,nSigmas,verbose)
@@ -159,6 +159,9 @@ def plot(fileName,sl,
                     histo = histos[idx]
                     value = histo.GetBinContent( binHisto ) 
                     error = histo.GetBinError( binHisto ) 
+                    if value<1E-20: 
+                        print "WARNING: ", "MB", st, "/ YB", wh, "/ Sector", sec, "/ Histo", histo.GetName(), "is empty, skipped"
+                        continue
                     averages[(st,wh)]     += value/( error*error ) 
                     averagesSumw[(st,wh)] += 1./( error*error )
             # Average per (st,wh)
