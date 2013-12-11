@@ -8,8 +8,8 @@
  *  The t0 of wires in odd layers are corrected for the relative difference between 
  *  odd and even layers 
  *
- *  $Date: 2009/06/11 14:01:57 $
- *  $Revision: 1.5 $
+ *  $Date: 2012/04/10 17:55:08 $
+ *  $Revision: 1.6 $
  *  \author S. Bolognesi - INFN Torino
  */
 
@@ -74,6 +74,9 @@ private:
 
   //Acceptance of t0 w.r.t. reference peak
   double tpPeakWidth;
+
+  // Write relative t0's with respect to mean t0's in chamber
+  bool correctByChamberMean_;
 
   //The wheels,sector to be calibrated (default All)
   std::string theCalibWheel;
