@@ -149,7 +149,7 @@ if __name__ == '__main__':
             config.stageOutLocal = False
     else:
         config.runOnGrid = True
-        config.scheduler = 'glite'
+        config.scheduler = 'remoteglidein'
         config.stageOutCAF = False
         config.stageOutLocal = True
 
