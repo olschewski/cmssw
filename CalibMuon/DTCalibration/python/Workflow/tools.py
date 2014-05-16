@@ -262,5 +262,7 @@ def loadCrabDefault(crabCfg,config):
     else:
         if not crabCfg.has_section('CAF'): crabCfg.add_section('CAF')
         crabCfg.set('CAF','queue',config.queueAtCAF) 
+        crabCfg.set('CAF','resource','type==SLC5_64')  # quick and dirty fix to use the caf 
+        crabCfg.set('CMSSW', 'allow_NonProductionCMSSW', '1')
     
     return crabCfg
