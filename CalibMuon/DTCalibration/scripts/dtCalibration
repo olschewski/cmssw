@@ -1,5 +1,5 @@
 #! /usr/bin/env python
-
+import sys
 from CalibMuon.DTCalibration.Workflow.DTCalibrationWorker import DTCalibrationWorker
 import sys,os,time,optparse
 
@@ -225,7 +225,11 @@ if __name__ == '__main__':
     log_dir = base_dir + '/Log'
     if not os.path.exists(log_dir): os.makedirs(log_dir)
     config.log_dir = log_dir 
-
+    cmdOut = open(os.path.join(log_dir,"command.txt"),'w')
+    cmdOut.write(" ".join(sys.argv))
+    cmdOut.close()
+    
+    
     #logFileName = os.path.abspath('%s/Run_%s_v%s.log' % (log_dir,run,trial))
     #logOut = open(logFileName,'w',1)
 
